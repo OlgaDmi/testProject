@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="testProject/dist/img/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Users List</title>
+<link href="testProject/dist/styles.css" rel="stylesheet"></head>
+<body>
+<div class="overlay"></div>
+<main class="container">
+    <header>
+        <h1>Таблица</h1>
+    </header>
+    <section class="charter">
+	    <form>
+		    <div class="row">
+			    <div class="charter-item">
+				    <div class="search form-group">
+					    <input type="search" class="search__box form-control" id="search" placeholder="Поиск">
+					    <label for="search" class="search__icon-block">
+						    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+							    <path d="M10.7204 9.43396H10.0429L9.80274 9.2024C10.6432 8.2247 11.1492 6.9554 11.1492 5.57461C11.1492 2.49571 8.65352 0 5.57461 0C2.49571 0 0 2.49571 0 5.57461C0 8.65352 2.49571 11.1492 5.57461 11.1492C6.9554 11.1492 8.2247 10.6432 9.2024 9.80274L9.43396 10.0429V10.7204L13.7221 15L15 13.7221L10.7204 9.43396V9.43396ZM5.57461 9.43396C3.43911 9.43396 1.71527 7.71012 1.71527 5.57461C1.71527 3.43911 3.43911 1.71527 5.57461 1.71527C7.71012 1.71527 9.43396 3.43911 9.43396 5.57461C9.43396 7.71012 7.71012 9.43396 5.57461 9.43396Z" fill="#ACACAC"/>
+						    </svg>
+					    </label>
+				    </div>
+			    </div>
+			    <div class="charter-item">
+				    <div class="date form-group">
+					    <label for="dateFrom">с</label>
+					    <input type="date" class="form-control" id="dateFrom" placeholder="">
+				    </div>
+			    </div>
+			    <div class="charter-item">
+				    <div class="date form-group">
+					    <label for="dateTo">по</label>
+					    <input type="date" class="form-control" id="dateTo" placeholder="">
+				    </div>
+			    </div>
+			    <div class="charter-item">
+				    <div class="status">
+					    <div class="select form-group">
+						    <input class="select__input" type="hidden" name="">
+						    <div class="select__head" id="status">Статус</div>
+						    <ul class="select__list" id="statusList">
+							    <li class="select__item">Все</li>
+							    <li class="select__item">Активный</li>
+							    <li class="select__item">Отмененный</li>
+							    <li class="select__item">Завершенный</li>
+						    </ul>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </form>
+    </section>
+    <section class="chapterReg">
+	    <div class="userList table-responsive">
+	        <table class="table table-hover">
+		    <thead>
+		    <tr>
+			    <th scope="col">Название</th>
+			    <th scope="col">Описание</th>
+			    <th scope="col">Пользователь</th>
+			    <th scope="col">Дата создания</th>
+			    <th scope="col">Дата исполнения</th>
+			    <th scope="col">Статус</th>
+		    </tr>
+		    </thead>
+		    <tbody class="userList-content">
+		    <tr class="userList-content__item">
+			    <th scope="row">Название 1</th>
+			    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</td>
+			    <td>Иванов В. Н.</td>
+			    <td>02.01.2023</td>
+			    <td>–</td>
+			    <td>Активный</td>
+		    </tr>
+		    <tr class="userList-content__item">
+			    <th scope="row">Название 2</th>
+			    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</td>
+			    <td>Сидоров В. Н.</td>
+			    <td>02.01.2023</td>
+			    <td>03.01.2023</td>
+			    <td>Завершенный</td>
+		    </tr>
+		    </tbody>
+	    </table>
+	    </div>
+        <div class="pagination">
+	        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
+		        <path d="M1.36035 3.40625L6.08398 5.32031V6.66016L0.492188 4.06934V3.2832L1.36035 3.40625ZM6.08398 1.83398L1.36719 3.77539L0.492188 3.87109V3.07812L6.08398 0.494141V1.83398Z" fill="#ACACAC"/>
+	        </svg>
+	        <div class="pagination-container">
+		        <div class="pagination-item active">1</div>
+		        <div class="pagination-item">2</div>
+		        <div class="pagination-item">3</div>
+		        <div class="pagination-item">4</div>
+		        <div class="pagination-item">5</div>
+	        </div>
+	        <svg class="active" viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
+		        <path d="M5.7832 3.67969L0.922852 1.78613V0.480469L6.76074 3.06445V3.86426L5.7832 3.67969ZM0.922852 5.34766L5.79688 3.41309L6.76074 3.26953V4.0625L0.922852 6.65332V5.34766Z" fill="black"/>
+	        </svg>
+        </div>
+    </section>
+</main>
+<script type="text/javascript" src="testProject/dist/main.js"></script></body>
+</html>
