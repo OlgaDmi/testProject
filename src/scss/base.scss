@@ -1,0 +1,373 @@
+@import 'bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('/dist/fonts/Roboto-Regular.ttf')  format('truetype');
+}
+
+$lt-grey: #E5E5E5; //bg
+$md-grey: #ACACAC;
+$dk-grey: #666666;
+$yellow: #FFD200;
+$md-black: #333333;
+$brd-grey1: #DADADA;
+$thead: #EEEEEE;
+$font: 'Roboto Regular';
+$lg: 1200px;
+$md: 1000px;
+$sm: 810px;
+$lt: 450px;
+
+body {
+    font-family: $font;
+    margin: 0 auto;
+    padding: 0;
+}
+
+input, button, select, option {
+    cursor: pointer;
+}
+
+.inputTxtFocus {
+    &:focus {
+        border: 1px solid $yellow;
+        box-shadow: none;
+    }
+}
+
+h1 {
+    color: $md-black;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+    @media (max-width: $md) {
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
+
+.text--bold {
+    font-weight: bold;
+}
+
+.text--md14 {
+    font-size: 14px;
+    @media (max-width: $md) {
+        font-size: 12px;
+    }
+}
+.text--md16 {
+    font-size: 16px;
+    @media (max-width: $md) {
+        font-size: 14px;
+    }
+}
+
+.overlay {
+    display: none;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0;
+    padding-top: 39px;
+}
+
+header {
+    padding-left: 20px;
+}
+
+section {
+    &:first-child {
+        padding: 15px 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #DADADA;
+        box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.16);
+    }
+}
+
+.select {
+    position: relative;
+    .select__head {
+        height: 39px;
+        padding: 8px 11px;
+        position: relative;
+        overflow: hidden;
+        @extend .text--md16;
+        color: $black;
+        font-weight: 400;
+        cursor: pointer;
+        border: 1px solid #DADADA;
+        border-radius: 5px;
+        width: 164px;
+        @media (max-width: $sm) {
+            width: 100%;
+        }
+        &::after {
+            width: 14px;
+            height: 8px;
+            background: url('/img/icon-arrow-up.svg') no-repeat center / cover;
+            position: absolute;
+            right: 7px;
+            bottom: 50%;
+            transform: translateY(50%);
+            content: '';
+            display: block;
+            transition: .2s ease-in;
+        }
+        &.open::after {
+            transform: translateY(50%) rotate(180deg);
+        }
+    }
+    .select__list {
+        display: none;
+        position: absolute;
+        cursor: pointer;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        max-height: 146px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 1px solid #DADADA;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.16);
+        border-radius: 0px 0px 5px 5px;
+        @extend .text--md14;
+        color: $md-black;
+        scrollbar-width: thin;
+        scrollbar-color: #E6E5E5 white;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar {
+            width: 5px;
+            background-color: #E6E5E5;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #E6E5E5;
+            border: 1px solid #E6E5E5;
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: white;
+        }
+        .select__item {
+            color: $black;
+            @extend .text--md16;
+            line-height: 16px;
+            padding: 10px;
+            user-select: none;
+            &:hover {
+                background: rgba(255, 210, 0, 0.1);
+            }
+        }
+    }
+}
+
+.date {
+    display: flex;
+    //justify-content: space-between;
+    align-items: baseline;
+    label {
+        margin-right: 8px;
+        @extend .text--md14;
+        line-height: 16px;
+        color: $dk-grey;
+    }
+    input {
+        height: 39px;
+        border: 1px solid #DADADA;
+        border-radius: 5px;
+        @extend .inputTxtFocus;
+        width: 137px;
+        @media (max-width: $sm) {
+            width: 100%;
+            margin: 0;
+        }
+        &::-webkit-calendar-picker-indicator {
+            background-image: url("/img/icon-date.svg");
+        }
+
+    }
+}
+
+.search {
+    position: relative;
+    .search__box {
+        height: 39px;
+        border: 1px solid #DADADA;
+        border-radius: 30px;
+        color: $md-grey;
+        cursor: unset;
+        outline: none;
+        padding: 5px 25px;
+        @extend .text--md16;
+        @extend .inputTxtFocus;
+    }
+    .search__icon-block {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        margin: 0;
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+}
+
+.charter {
+    padding: 7px 20px 0px 33px;
+    border-bottom: 1px solid $brd-grey1;
+    @media (max-width: $sm) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .row {
+        @media (max-width: $sm) {
+            padding: 0px;
+            margin: 10px 20px;
+        }
+    }
+    .charter-item {
+        @media (max-width: $sm) {
+            width: 100%;
+            margin: 0;
+        }
+        &:first-child {
+            width: 26.95%;
+            margin-right: 34px;
+            @media (max-width: $sm) {
+                width: 100%;
+                margin: 0;
+            }
+        }
+        &:nth-child(2), &:nth-child(3) {
+            margin-right: 20px;
+            @media (max-width: $sm) {
+                margin: 0;
+            }
+        }
+
+    }
+}
+
+.chapterReg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 20px;
+}
+
+.userList {
+    border: 1px solid #DADADA;
+    height: 741px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    user-select: none;
+    @extend .text--md14;
+    margin-bottom: 40px;
+    @media (max-width: $sm) {
+        overflow-x: auto;
+        height: auto;
+    }
+    table {
+        th, td {
+           padding:  1.175rem 1.3rem;
+        }
+    }
+    thead {
+        border-bottom: 1px solid #DADADA;
+        padding: 19px;
+        background: $thead;
+        th {
+            color: #2B323B;
+            font-weight: 300;
+            padding:  0.9rem 1.3rem;
+        }
+        @media (max-width: $sm) {
+            th {
+                text-align: center;
+                vertical-align: middle;
+            }
+        }
+    }
+    .userList-content {
+        color: $black;
+        padding: 0 19px;
+        .userList-content__item {
+            padding: 22px 0;
+            border-bottom: 1px solid #DADADA;
+            cursor: pointer;
+            th, td:nth-child(3) {
+                width: 11%;
+            }
+            td:nth-child(4) {
+                width: 13%;
+            }
+            td:nth-child(5) {
+                width: 14%;
+            }
+            td:nth-child(2) {
+                width: 33%;
+            }
+            &:hover {
+                background: rgba(255, 210, 0, 0.1);
+            }
+        }
+
+    }
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    width: 212px;
+    @extend .text--md14;
+    svg {
+        width: 7px;
+        height: 7px;
+        fill: $md-grey;
+        &.active {
+            cursor: pointer;
+            fill: $black;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+    .pagination-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 155px;
+        margin: 0 14px;
+        .pagination-item {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                opacity: 0.5;
+            }
+            &.active {
+                border-radius: 50%;
+                background: rgba(255, 210, 0, 0.2);
+            }
+        }
+    }
+
+}
